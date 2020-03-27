@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PogodA</title>
+</head>
+<body>
+POGODA
+<form th:action="@{/}" th:object="${location}" method="post">
+    <input th:type="text" th:field="*{location}">
+
+    </input>
+    <input type="submit"></input>
+</form>
+<p th:text="${temp.getTheTemp()}"> </p>
+<p th:text="${temp.getHumidity()}"> </p>
+<p th:text="${temp.getWeatherStateName()}"> </p>
+<img th:src="${icon}">
+
+</body>
+</html>
