@@ -23,7 +23,7 @@ public class WeatherController {
         this.weatherAPI = weatherAPI;
     }
 
-    @GetMapping("/")
+    @GetMapping
     public String HomePage(Model model){
         ConsolidatedWeather consolidatedWeather = weatherAPI.getWeather(location);
         model.addAttribute("temp", consolidatedWeather);
@@ -31,7 +31,7 @@ public class WeatherController {
         model.addAttribute("icon", weatherAPI.getIconURL(consolidatedWeather.getWeatherStateAbbr()));
         return "home";
     }
-    @PostMapping("/")
+    @PostMapping
     public String SearchByLocation(@ModelAttribute LocationName location){
         this.location=location.getLocation();
         return "redirect:/";
